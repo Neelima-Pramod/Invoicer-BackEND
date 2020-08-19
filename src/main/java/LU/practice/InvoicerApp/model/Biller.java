@@ -3,7 +3,7 @@ import org.apache.naming.factory.SendMailFactory;
 import org.springframework.data.annotation.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "testing")
+@Document(collection = "Biller")
 public class Biller {
 
     @Id
@@ -11,6 +11,8 @@ public class Biller {
     private Unpackname name;
     private String email;
     private String phoneNumber;
+    private UnpackAdress address;
+    private String password;
 
     public UnpackAdress getAddress() {
         return address;
@@ -20,7 +22,6 @@ public class Biller {
         this.address = address;
     }
 
-    private UnpackAdress address;
 
     public Unpackname getName() {
         return name;
@@ -48,6 +49,14 @@ public class Biller {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setPhoneNumber(String phoneNumber) {
