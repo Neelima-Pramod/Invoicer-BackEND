@@ -1,8 +1,8 @@
 package LU.practice.InvoicerApp.controller;
 
-import LU.practice.InvoicerApp.model.Biller;
-import LU.practice.InvoicerApp.model.BillerJwtLoginRequest;
-import LU.practice.InvoicerApp.model.BillerJwtResponse;
+import LU.practice.InvoicerApp.model.Biller.Biller;
+import LU.practice.InvoicerApp.model.Biller.BillerJwtLoginRequest;
+import LU.practice.InvoicerApp.model.Biller.BillerJwtResponse;
 import LU.practice.InvoicerApp.repos.BillerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +11,12 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import LU.practice.InvoicerApp.configuration.JwtTokenUtil;
 import LU.practice.InvoicerApp.service.JWTBillerDetailsService;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -81,8 +79,6 @@ public class BillerController {
         biller.setPassword(passwordEncoder.encode(biller.getPassword()));
         return billerRepository.save(biller);
     }
-
-
 
     //To Update biller
     @PutMapping(value = "/{id}")

@@ -1,4 +1,4 @@
-package LU.practice.InvoicerApp.model;
+package LU.practice.InvoicerApp.model.Biller;
 
 import java.io.Serializable;
 

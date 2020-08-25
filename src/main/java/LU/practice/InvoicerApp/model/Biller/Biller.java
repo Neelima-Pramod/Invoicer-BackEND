@@ -1,5 +1,4 @@
-package LU.practice.InvoicerApp.model;
-import org.apache.naming.factory.SendMailFactory;
+package LU.practice.InvoicerApp.model.Biller;
 import org.springframework.data.annotation.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
