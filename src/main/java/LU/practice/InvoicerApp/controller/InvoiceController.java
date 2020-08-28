@@ -9,6 +9,8 @@ import LU.practice.InvoicerApp.service.NextSequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
+
 @CrossOrigin
 @RestController
 public class InvoiceController {
@@ -32,29 +34,29 @@ public class InvoiceController {
         return billerCount+1;
     }
 
+    @GetMapping(value = "/api/invoice/{id}")
+    public Invoices getOne(@PathVariable String id)
+    {
+        return invoicesRepository.findById(id).get();
+    }
+
     @PostMapping(value = "/api/invoices")
-    public Invoices saveInvoice(@RequestHeader (name="Authorization") String token,
-                                @RequestBody Invoices invoices)
+    public Invoices saveInvoice(@RequestBody Invoices invoices,
+                                @RequestHeader (name="Authorization") String token)
+
     {
         String Username = jwtTokenUtil.getUsernameFromToken(token);
         Biller biller =  billerRepository.findByEmail(Username);
         invoices.setCreatedBy(biller.getId());
+        invoices.setCreatedOn(Instant.now());
+        if(invoices.getDueDate()!=null)
+        {
+            invoices.setDueDate(Instant.parse(invoices.getDueDate().toString()));
+        }
+
         return invoicesRepository.save(invoices);
     }
 
-//    @GetMapping(value = "api/getInvoiceNoo")
-//    public int getInvoiceNumber1()
-//    {
-//        int i=nextSequenceService.getNextSequence("customSequences");
-//        System.out.println(i);
-//        invoices.setInvNo(nextSequenceService.getNextSequence("customSequences"));
-//        return invoicesRepository.save(invoices);
-
-//        int i=nextSequenceService.getNextSequence("customSequences");
-//        return i;
-//
-//
-//    }
 
 
 }

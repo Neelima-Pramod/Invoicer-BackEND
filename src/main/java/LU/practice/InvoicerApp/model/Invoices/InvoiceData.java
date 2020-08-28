@@ -1,60 +1,24 @@
 package LU.practice.InvoicerApp.model.Invoices;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.Instant;
 import java.util.List;
 
-@Document(collection = "Invoices")
-public class Invoices {
-
-    @Id
-    private String id;
-//    private  InvoiceData invoiceData;
-    private String createdBy;
-    private Instant createdOn;
-    private String invoiceNo;
+public class InvoiceData {
+    private int invNo;
     private String payerName;
     private String payerEmail;
     private String freeTextOne;
     private String freeTextTwo;
     private int total;
     private String invoiceFooter;
-    private List products;
-    private Instant dueDate;
+    private List  products;
+    private String dueDate;
 
-    public String getId() {
-        return id;
+    public int getInvNo() {
+        return invNo;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Instant getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Instant createdOn) {
-        this.createdOn = createdOn;
-    }
-
-
-    public String getInvoiceNo() {
-        return invoiceNo;
-    }
-
-    public void setInvoiceNo(String invoiceNo) {
-        this.invoiceNo = invoiceNo;
+    public void setInvNo(int invNo) {
+        this.invNo = invNo;
     }
 
     public String getPayerName() {
@@ -113,11 +77,11 @@ public class Invoices {
         this.products = products;
     }
 
-    public Instant getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Instant dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 }

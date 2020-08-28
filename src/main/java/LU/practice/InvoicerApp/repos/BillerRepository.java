@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface BillerRepository extends MongoRepository<Biller,String> {
 
     Biller findByEmail(String email);
-    long countByEmail(String email);
+//    long countByEmail(String email);
 }
