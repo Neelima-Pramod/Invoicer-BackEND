@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         	table{
+    		width: 100%;
+    		max-width: 100%
+    	}
+        table, th, td {
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+          text-align: left;
+        }
+        input{
+        	width: 90%;
+        	min-height:50%;
+        }
+        .thead{
+        	text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Invoice Number:</th>
+            <th></th>
+            <th>Due Date:</th>
+            <th></th>
+            <th>LOGO</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td colspan="2"><input  type="text" id="invno"  value="$invoiceNo$" name="invoNo"></td>
+            <td colspan="2" ><input type="text" id="dueDate"   name="dueDate"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Payer Name:</th>
+            <th colspan="2">Payer Email:</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" id="payerName" value="$payerName$" name="payerName"></td>
+            <td colspan="2"><input type="text" id="payerEmail" value="$payerEmail$" name="payerEmail"></td>
+        </tr>
+
+        <tr>
+            <th>Free Text:</th>
+        </tr>
+        <tr>
+            <td colspan="6">
+                   <textarea name="freeTextOne" rows="6"  style="width: 100%; max-width: 98%;">
+                            $freeTextOne$
+                    </textarea>
+            </td>
+        </tr>
+
+        <tr >
+            <th class="thead">Serial no</th>
+            <th class="thead">Product Name</th>
+            <th class="thead">Product Description</th>
+            <th class="thead">Quantity</th>
+            <th class="thead">Price</th>
+            <th class="thead">Total</th>
+        </tr>
+        <tr>
+            <td class="thead">1</td>
+            <td class="thead">Nokia</td>
+            <td class="thead">Nokia Dabba</td>
+            <td class="thead">1</td>
+            <td class="thead">2000</td>
+            <td class="thead">2000</td>
+        </tr>
+
+        <tr>
+            <th>Free Text:</th>
+        </tr>
+        <tr>
+            <td colspan="6">
+                   <textarea name="message"   rows="6" style="width: 100%; max-width: 98%;">
+                        $freeTextTwo$
+                    </textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4" rowspan="2">
+                   <textarea name="message" rows="6" style="width: 100%; max-width: 98%;">
+                        $footer$
+                    </textarea>
+            </td>
+            <td>Discount: <input type="text" id="fname" name="fname"></td>
+
+        </tr>
+
+        <tr> <th>Total: Rs </th></tr>
+
+    </table>
+</body>
+</html>

@@ -14,13 +14,15 @@ public class Invoices {
 //    private  InvoiceData invoiceData;
     private String createdBy;
     private Instant createdOn;
+    private InvoiceStatus status;
+    private Integer statusCode;
     private String invoiceNo;
     private String payerName;
     private String payerEmail;
     private String freeTextOne;
     private String freeTextTwo;
     private int total;
-    private String invoiceFooter;
+    private String footer;
     private List products;
     private Instant dueDate;
 
@@ -48,6 +50,22 @@ public class Invoices {
         this.createdOn = createdOn;
     }
 
+    public InvoiceStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(InvoiceStatus status) {
+        this.status = status;
+        setStatusCode(status.getStatusCode());
+    }
+
+    public Integer getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
+    }
 
     public String getInvoiceNo() {
         return invoiceNo;
@@ -56,6 +74,7 @@ public class Invoices {
     public void setInvoiceNo(String invoiceNo) {
         this.invoiceNo = invoiceNo;
     }
+
 
     public String getPayerName() {
         return payerName;
@@ -97,12 +116,12 @@ public class Invoices {
         this.total = total;
     }
 
-    public String getInvoiceFooter() {
-        return invoiceFooter;
+    public String getFooter() {
+        return footer;
     }
 
-    public void setInvoiceFooter(String invoiceFooter) {
-        this.invoiceFooter = invoiceFooter;
+    public void setFooter(String footer) {
+        this.footer = footer;
     }
 
     public List getProducts() {
