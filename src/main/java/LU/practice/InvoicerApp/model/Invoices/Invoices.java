@@ -1,5 +1,6 @@
 package LU.practice.InvoicerApp.model.Invoices;
 
+import LU.practice.InvoicerApp.Utils.FilePath;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,20 +12,18 @@ public class Invoices {
 
     @Id
     private String id;
-//    private  InvoiceData invoiceData;
+    private  InvoiceData invoiceData;
     private String createdBy;
+    private FilePath invoiceFilePath;
     private Instant createdOn;
     private InvoiceStatus status;
     private Integer statusCode;
-    private String invoiceNo;
-    private String payerName;
-    private String payerEmail;
-    private String freeTextOne;
-    private String freeTextTwo;
-    private int total;
-    private String footer;
-    private List products;
-    private Instant dueDate;
+
+    public Invoices(InvoiceData invoiceData,String createdBy){
+        this.invoiceData = invoiceData;
+        this.createdBy=createdBy;
+        this.createdOn=Instant.now();
+    }
 
     public String getId() {
         return id;
@@ -67,76 +66,19 @@ public class Invoices {
         this.statusCode = statusCode;
     }
 
-    public String getInvoiceNo() {
-        return invoiceNo;
+    public FilePath getInvoiceFilePath() {
+        return invoiceFilePath;
     }
 
-    public void setInvoiceNo(String invoiceNo) {
-        this.invoiceNo = invoiceNo;
+    public void setInvoiceFilePath(FilePath invoiceFilePath) {
+        this.invoiceFilePath = invoiceFilePath;
     }
 
-
-    public String getPayerName() {
-        return payerName;
+    public InvoiceData getInvoiceData() {
+        return invoiceData;
     }
 
-    public void setPayerName(String payerName) {
-        this.payerName = payerName;
-    }
-
-    public String getPayerEmail() {
-        return payerEmail;
-    }
-
-    public void setPayerEmail(String payerEmail) {
-        this.payerEmail = payerEmail;
-    }
-
-    public String getFreeTextOne() {
-        return freeTextOne;
-    }
-
-    public void setFreeTextOne(String freeTextOne) {
-        this.freeTextOne = freeTextOne;
-    }
-
-    public String getFreeTextTwo() {
-        return freeTextTwo;
-    }
-
-    public void setFreeTextTwo(String freeTextTwo) {
-        this.freeTextTwo = freeTextTwo;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public String getFooter() {
-        return footer;
-    }
-
-    public void setFooter(String footer) {
-        this.footer = footer;
-    }
-
-    public List getProducts() {
-        return products;
-    }
-
-    public void setProducts(List products) {
-        this.products = products;
-    }
-
-    public Instant getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(Instant dueDate) {
-        this.dueDate = dueDate;
+    public void setInvoiceData(InvoiceData invoiceData) {
+        this.invoiceData = invoiceData;
     }
 }

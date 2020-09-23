@@ -1,24 +1,25 @@
 package LU.practice.InvoicerApp.model.Invoices;
 
-import java.util.List;
+import java.time.Instant;
+import java.util.ArrayList;
 
 public class InvoiceData {
-    private int invNo;
+    private int invoiceNo;
     private String payerName;
     private String payerEmail;
     private String freeTextOne;
     private String freeTextTwo;
     private int total;
-    private String invoiceFooter;
-    private List  products;
-    private String dueDate;
+    private String footer;
+    private ArrayList<InvoiceProduct> products;
+    private Instant dueDate;
 
-    public int getInvNo() {
-        return invNo;
+    public int getInvoiceNo() {
+        return invoiceNo;
     }
 
-    public void setInvNo(int invNo) {
-        this.invNo = invNo;
+    public void setInvoiceNo(int invoiceNo) {
+        this.invoiceNo = invoiceNo;
     }
 
     public String getPayerName() {
@@ -61,27 +62,27 @@ public class InvoiceData {
         this.total = total;
     }
 
-    public String getInvoiceFooter() {
-        return invoiceFooter;
+    public String getFooter() {
+        return footer;
     }
 
-    public void setInvoiceFooter(String invoiceFooter) {
-        this.invoiceFooter = invoiceFooter;
+    public void setFooter(String footer) {
+        this.footer = footer;
     }
 
-    public List getProducts() {
+    public ArrayList<InvoiceProduct> getProducts() {
         return products;
     }
 
-    public void setProducts(List products) {
+    public void setProducts(ArrayList<InvoiceProduct> products) {
         this.products = products;
     }
 
-    public String getDueDate() {
+    public Instant getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(Instant dueDate) {
         this.dueDate = dueDate;
     }
 }
